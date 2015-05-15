@@ -131,7 +131,7 @@
 </target>       
 
 
-</me="csslint" description="Run the CSSLint tool on CSS files">
+<target name="csslint" description="Run the CSSLint tool on CSS files">
    <fileset dir="${basedir}/ecomm_project" id="cssfiles.raw">
      <include name="**/*.css" />
    </fileset>
