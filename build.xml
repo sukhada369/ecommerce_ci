@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Ecomm" default="build" basedir=".">
- <target name="build" depends="prepare,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpdox,zip,csslint"/>
+ <target name="build" depends="prepare,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpdox,csslint,zip"/>
 
 <target name="clean" description="Cleanup build artifacts">
   <delete dir="${basedir}/build/api"/>
@@ -123,12 +123,7 @@
 
  <target name="phpdox" description="Generate API documentation using phpDox">
   <exec executable="${basedir}/build/tools/phpdox.phar" dir="${basedir}/build"/>
- </target>
-
-
-<target name="zip" description="zip files using ant">
-    <zip destfile="ecomm_project.zip" basedir="ecomm_project/"/>
-</target>       
+ </target>       
 
 
 <target name="csslint" description="Run the CSSLint tool on CSS files">
@@ -139,6 +134,10 @@
    <exec executable="csslint" output="${basedir}/build/logs/csslint.xml">
      <arg line="--warnings=box-model,floats --errors=ids,important --format=lint-xml ${cssfiles.clean}" />
    </exec>
+</target>
+
+<target name="zip" description="zip files using ant">
+    <zip destfile="ecomm_project.zip" basedir="ecomm_project/"/>
 </target>
 
 </project>
