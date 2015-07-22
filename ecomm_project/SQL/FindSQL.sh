@@ -5,7 +5,7 @@ cd migrate/
 if (find | grep *.sql)
 then
 		echo "SQL script is exist in migrate";
-		mysql -uroot -proot < add_column.sql         
+		mysql -uroot -proot -h 172.27.59.82 < add_column.sql         
 	        echo "done";
 else 
 		echo "SQL script does not exists in migrate";
@@ -18,7 +18,7 @@ cd rollback/
 if (find | grep *.sql)
 then
 		echo "SQL script is exist in rollback";
-		mysql -uroot -proot < drop_column.sql         
+		mysql -uroot -proot -h 172.27.59.82 < drop_column.sql         
 	        echo "done";
 else 
 		echo "SQL script does not exists in rollback";
